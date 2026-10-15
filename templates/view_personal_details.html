@@ -1,0 +1,126 @@
+{% extends "main.html" %}
+
+{% block content %}
+
+<h2>Personal & Contact Details</h2>
+
+<table class="detail-table">
+
+    <tr>
+        <th>Employee</th>
+        <td>{{ detail.employee.first_name }} {{ detail.employee.last_name }}</td>
+    </tr>
+
+    <tr>
+        <th>Father Name</th>
+        <td>{{ detail.father_name }}</td>
+    </tr>
+
+    <tr>
+        <th>Mother Name</th>
+        <td>{{ detail.mother_name }}</td>
+    </tr>
+
+    <tr>
+        <th>Marital Status</th>
+        <td>{{ detail.marital_status }}</td>
+    </tr>
+
+    <tr>
+        <th>Blood Group</th>
+        <td>{{ detail.blood_group }}</td>
+    </tr>
+
+    <tr>
+        <th>Nationality</th>
+        <td>{{ detail.nationality }}</td>
+    </tr>
+
+    <tr>
+        <th>Permanent Address</th>
+        <td>{{ detail.permanent_address }}</td>
+    </tr>
+
+    <tr>
+        <th>Current Address</th>
+        <td>{{ detail.current_address }}</td>
+    </tr>
+
+    <tr>
+        <th>Personal Email</th>
+        <td>{{ detail.personal_email }}</td>
+    </tr>
+
+    <tr>
+        <th>Personal Mobile</th>
+        <td>{{ detail.personal_mobile }}</td>
+    </tr>
+
+    <tr>
+        <th>Emergency Contact Name</th>
+        <td>{{ detail.emergency_contact_name }}</td>
+    </tr>
+
+    <tr>
+        <th>Emergency Contact Number</th>
+        <td>{{ detail.emergency_contact_number }}</td>
+    </tr>
+
+    <tr>
+        <th>Relationship</th>
+        <td>{{ detail.emergency_contact_relationship }}</td>
+    </tr>
+
+</table>
+
+<br>
+
+<a href="{% url 'edit_personal_details' detail.id %}">
+    <button class="btn-edit">Edit</button>
+</a>
+
+<a href="{% url 'personal_details_list' %}">
+    <button class="btn-back">Back</button>
+</a>
+
+<style>
+
+.detail-table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.detail-table th{
+    width:30%;
+    background:#2563eb;
+    color:white;
+    padding:12px;
+    text-align:left;
+}
+
+.detail-table td{
+    padding:12px;
+    border-bottom:1px solid #ddd;
+}
+
+.btn-edit{
+    background:#f59e0b;
+    color:black;
+}
+
+.btn-back{
+    background:#2563eb;
+    color:white;
+}
+
+button{
+    padding:10px 18px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+    margin-right:10px;
+}
+
+</style>
+
+{% endblock %}

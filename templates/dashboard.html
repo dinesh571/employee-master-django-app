@@ -1,0 +1,81 @@
+{% extends "main.html" %}
+
+{% block content %}
+
+<h1>Veldone ERP Dashboard</h1>
+
+<br>
+
+<div class="employee_dashboard">
+
+    <a href="{% url 'employee_list' %}" class="card">
+        <h2>👨‍💼</h2>
+        <h3>Employee Master</h3>
+        <p>Employee Profile Management</p>
+    </a>
+
+    <a href="{% url 'personal_details_list' %}" class="card">
+        <h2>📇</h2>
+        <h3>Personal Details</h3>
+        <p>Contact & Family Information</p>
+    </a>
+
+    <a href="{% url 'education_list' %}" class="card">
+        <h2>🎓</h2>
+        <h3>Education</h3>
+        <p>Educational Qualifications</p>
+    </a>
+
+    <a href="{% url 'experience_list' %}" class="card">
+        <h2>💼</h2>
+        <h3>Experience</h3>
+        <p>Work Experience History</p>
+    </a>
+
+    <a href="{% url 'document_list' %}" class="card">
+        <h2>📁</h2>
+        <h3>Documents</h3>
+        <p>Employee Documents</p>
+    </a>
+
+</div>
+
+<style>
+
+.dashboard{
+    display:grid !important;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+    width:100%;
+}
+
+.card{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-decoration:none;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 20px rgba(0,0,0,.2);
+}
+
+.card h2{
+    font-size:50px;
+    margin-bottom:10px;
+}
+
+.card h3{
+    color:#2563eb;
+    margin-bottom:10px;
+}
+
+.card p{
+    color:#666;
+}
+
+</style>
+
+{% endblock %}

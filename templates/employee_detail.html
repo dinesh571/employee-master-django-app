@@ -1,0 +1,177 @@
+{% extends "main.html" %}
+
+{% block content %}
+
+<h2>Employee Profile</h2>
+
+<br>
+
+<table class="detail-table">
+
+<tr>
+<th>Employee ID</th>
+<td>{{ employee.employee_id }}</td>
+</tr>
+
+<tr>
+<th>First Name</th>
+<td>{{ employee.first_name }}</td>
+</tr>
+
+<tr>
+<th>Last Name</th>
+<td>{{ employee.last_name }}</td>
+</tr>
+
+<tr>
+<th>Email</th>
+<td>{{ employee.email }}</td>
+</tr>
+
+<tr>
+<th>Phone</th>
+<td>{{ employee.phone }}</td>
+</tr>
+
+<tr>
+<th>Gender</th>
+<td>{{ employee.gender }}</td>
+</tr>
+
+<tr>
+<th>Date of Birth</th>
+<td>{{ employee.date_of_birth }}</td>
+</tr>
+
+<tr>
+<th>Department</th>
+<td>{{ employee.department }}</td>
+</tr>
+
+<tr>
+<th>Designation</th>
+<td>{{ employee.designation }}</td>
+</tr>
+
+<tr>
+<th>Joining Date</th>
+<td>{{ employee.joining_date }}</td>
+</tr>
+
+<tr>
+<th>Status</th>
+<td>{{ employee.status }}</td>
+</tr>
+
+</table>
+
+<br>
+
+<div class="button-group">
+
+<a href="{% url 'edit_employee' employee.id %}">
+<button class="btn-edit">
+Edit Employee
+</button>
+</a>
+
+<a href="{% url 'add_personal_details' employee.id %}">
+<button class="btn-blue">
+Personal Details
+</button>
+</a>
+
+<a href="{% url 'add_education' employee.id %}">
+<button class="btn-green">
+Education
+</button>
+</a>
+
+<a href="{% url 'add_experience' employee.id %}">
+<button class="btn-purple">
+Experience
+</button>
+</a>
+
+<a href="{% url 'add_document' employee.id %}">
+<button class="btn-orange">
+Upload Documents
+</button>
+</a>
+
+<a href="{% url 'employee_list' %}">
+<button class="btn-back">
+Back
+</button>
+</a>
+
+</div>
+
+<style>
+
+.detail-table{
+width:100%;
+border-collapse:collapse;
+margin-bottom:25px;
+}
+
+.detail-table th{
+background:#2563eb;
+color:white;
+padding:12px;
+width:28%;
+text-align:left;
+}
+
+.detail-table td{
+padding:12px;
+border-bottom:1px solid #ddd;
+}
+
+.button-group{
+display:flex;
+flex-wrap:wrap;
+gap:12px;
+}
+
+button{
+padding:10px 18px;
+border:none;
+border-radius:6px;
+cursor:pointer;
+font-size:15px;
+color:white;
+}
+
+.btn-edit{
+background:#f59e0b;
+color:black;
+}
+
+.btn-blue{
+background:#2563eb;
+}
+
+.btn-green{
+background:#16a34a;
+}
+
+.btn-purple{
+background:#7c3aed;
+}
+
+.btn-orange{
+background:#ea580c;
+}
+
+.btn-back{
+background:#6b7280;
+}
+
+button:hover{
+opacity:0.9;
+}
+
+</style>
+
+{% endblock %}

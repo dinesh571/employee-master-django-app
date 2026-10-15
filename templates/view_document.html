@@ -1,0 +1,186 @@
+{% extends "main.html" %}
+
+{% block content %}
+
+<h2>Employee Documents</h2>
+
+<table class="detail-table">
+
+<tr>
+    <th>Employee</th>
+    <td>
+        {{ document.employee.employee_id }} -
+        {{ document.employee.first_name }}
+        {{ document.employee.last_name }}
+    </td>
+</tr>
+
+<tr>
+    <th>Aadhaar</th>
+    <td>
+        {% if document.aadhaar %}
+            <a href="{{ document.aadhaar.url }}" target="_blank">
+                View Aadhaar
+            </a>
+        {% else %}
+            Not Uploaded
+        {% endif %}
+    </td>
+</tr>
+
+<tr>
+    <th>PAN</th>
+    <td>
+        {% if document.pan %}
+            <a href="{{ document.pan.url }}" target="_blank">
+                View PAN
+            </a>
+        {% else %}
+            Not Uploaded
+        {% endif %}
+    </td>
+</tr>
+
+<tr>
+    <th>Passport</th>
+    <td>
+        {% if document.passport %}
+            <a href="{{ document.passport.url }}" target="_blank">
+                View Passport
+            </a>
+        {% else %}
+            Not Uploaded
+        {% endif %}
+    </td>
+</tr>
+
+<tr>
+    <th>Resume</th>
+    <td>
+        {% if document.resume %}
+            <a href="{{ document.resume.url }}" target="_blank">
+                View Resume
+            </a>
+        {% else %}
+            Not Uploaded
+        {% endif %}
+    </td>
+</tr>
+
+<tr>
+    <th>Profile Photo</th>
+    <td>
+
+        {% if document.profile_photo %}
+
+            <img src="{{ document.profile_photo.url }}"
+                 width="150"
+                 style="border-radius:10px;">
+
+        {% else %}
+
+            Not Uploaded
+
+        {% endif %}
+
+    </td>
+</tr>
+
+<tr>
+    <th>Certificates</th>
+    <td>
+
+        {% if certificates %}
+
+            <ul>
+
+                {% for certificate in certificates %}
+
+                    <li>
+
+                        <a href="{{ certificate.certificate_file.url }}" target="_blank">
+
+                            {{ certificate.certificate_name }}
+
+                        </a>
+
+                    </li>
+
+                {% endfor %}
+
+            </ul>
+
+        {% else %}
+
+            No Certificates Uploaded
+
+        {% endif %}
+
+    </td>
+</tr>
+
+</table>
+
+<br>
+
+<a href="{% url 'document_list' %}">
+    <button class="btn-back">
+        Back
+    </button>
+</a>
+
+<style>
+
+.detail-table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.detail-table th{
+    background:#2563eb;
+    color:white;
+    padding:12px;
+    width:25%;
+    text-align:left;
+}
+
+.detail-table td{
+    padding:12px;
+    border-bottom:1px solid #ddd;
+}
+
+.detail-table a{
+    text-decoration:none;
+    color:#2563eb;
+    font-weight:bold;
+}
+
+.detail-table a:hover{
+    text-decoration:underline;
+}
+
+.detail-table ul{
+    margin:0;
+    padding-left:20px;
+}
+
+.detail-table li{
+    margin-bottom:8px;
+}
+
+.btn-back{
+    background:#2563eb;
+    color:white;
+    padding:10px 20px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+.btn-back:hover{
+    opacity:.9;
+}
+
+</style>
+
+{% endblock %}

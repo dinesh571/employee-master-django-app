@@ -1,0 +1,142 @@
+{% extends "main.html" %}
+
+{% block content %}
+
+<h2>Employee Documents</h2>
+
+<br>
+
+<table>
+
+    <thead>
+
+        <tr>
+            <th>Employee ID</th>
+            <th>Employee Name</th>
+            <th>Uploaded Documents</th>
+            <th>Action</th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+    {% for document in documents %}
+
+    <tr>
+
+        <td>{{ document.employee.employee_id }}</td>
+
+        <td>
+            {{ document.employee.first_name }}
+            {{ document.employee.last_name }}
+        </td>
+
+        <td>
+
+            {% if document.aadhaar %}
+                Aadhaar ✅<br>
+            {% endif %}
+
+            {% if document.pan %}
+                PAN ✅<br>
+            {% endif %}
+
+            {% if document.passport %}
+                Passport ✅<br>
+            {% endif %}
+
+            {% if document.resume %}
+                Resume ✅<br>
+            {% endif %}
+
+            {% if document.profile_photo %}
+                Profile Photo ✅<br>
+            {% endif %}
+
+            {% if document.certificate %}
+                Certificate ✅
+            {% endif %}
+
+        </td>
+
+        <td>
+
+            <a href="{% url 'view_document' document.id %}">
+                <button class="btn-view">
+                    View
+                </button>
+            </a>
+
+            <a href="{% url 'delete_document' document.id %}"
+               onclick="return confirm('Delete this document?')">
+
+                <button class="btn-delete">
+                    Delete
+                </button>
+
+            </a>
+
+        </td>
+
+    </tr>
+
+    {% empty %}
+
+    <tr>
+
+        <td colspan="4">
+            No Documents Uploaded
+        </td>
+
+    </tr>
+
+    {% endfor %}
+
+    </tbody>
+
+</table>
+
+<style>
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+}
+
+th{
+    background:#2563eb;
+    color:white;
+    padding:12px;
+}
+
+td{
+    padding:12px;
+    border-bottom:1px solid #ddd;
+    text-align:center;
+}
+
+button{
+    border:none;
+    padding:8px 14px;
+    border-radius:5px;
+    cursor:pointer;
+    color:white;
+}
+
+.btn-view{
+    background:#0ea5e9;
+}
+
+.btn-delete{
+    background:#dc2626;
+}
+
+button:hover{
+    opacity:.9;
+}
+
+</style>
+
+{% endblock %}

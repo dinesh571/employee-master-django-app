@@ -1,0 +1,96 @@
+{% extends "main.html" %}
+
+{% block content %}
+
+<h2>Educational Qualification Details</h2>
+
+<table class="detail-table">
+
+<tr>
+<th>Employee</th>
+<td>{{ education.employee.first_name }} {{ education.employee.last_name }}</td>
+</tr>
+
+<tr>
+<th>Degree</th>
+<td>{{ education.degree }}</td>
+</tr>
+
+<tr>
+<th>Specialization</th>
+<td>{{ education.specialization }}</td>
+</tr>
+
+<tr>
+<th>Institution</th>
+<td>{{ education.institution }}</td>
+</tr>
+
+<tr>
+<th>University</th>
+<td>{{ education.university }}</td>
+</tr>
+
+<tr>
+<th>Year of Passing</th>
+<td>{{ education.year_of_passing }}</td>
+</tr>
+
+<tr>
+<th>Percentage</th>
+<td>{{ education.percentage }}%</td>
+</tr>
+
+</table>
+
+<br>
+
+<a href="{% url 'edit_education' education.id %}">
+<button class="btn-edit">Edit</button>
+</a>
+
+<a href="{% url 'education_list' %}">
+<button class="btn-back">Back</button>
+</a>
+
+<style>
+
+.detail-table{
+width:100%;
+border-collapse:collapse;
+}
+
+.detail-table th{
+background:#2563eb;
+color:white;
+padding:12px;
+width:30%;
+text-align:left;
+}
+
+.detail-table td{
+padding:12px;
+border-bottom:1px solid #ddd;
+}
+
+button{
+padding:10px 18px;
+border:none;
+border-radius:6px;
+cursor:pointer;
+margin-right:10px;
+}
+
+.btn-edit{
+background:#f59e0b;
+color:black;
+}
+
+.btn-back{
+background:#2563eb;
+color:white;
+}
+
+</style>
+
+{% endblock %}
